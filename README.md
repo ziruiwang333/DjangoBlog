@@ -23,3 +23,10 @@
 **3. Run program and add posts**
 
 * **````python manage.py runserver````**
+
+&nbsp;
+&nbsp;
+
+<u>***Zirui Wang***</u>  
+<u>***School of Computer Science***</u>  
+<u>***University of Birmingham***</u>
