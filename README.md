@@ -20,9 +20,11 @@
 
 * **````python manage.py createsuperuser````**
 
-**3. Run program and add posts**
+**3. Run program**
 
 * **````python manage.py runserver````**
+
+**4. Go to ````localhost/admin```` add posts**
 
 &nbsp;
 &nbsp;
