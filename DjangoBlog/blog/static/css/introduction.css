@@ -71,7 +71,7 @@ body{
 }
 
 .introContent {
-	margin-left:300px;
+	margin-left:261px;
 	font-family: Comfortaa-Medium;
 	line-height: 1.7;
 }
@@ -97,7 +97,7 @@ body{
 	font-weight: bold;
 	font-family: Pangolin-Regular;
 	letter-spacing: 2;
-	ont-size: 30;
+	font-size: 30;
 }
 
 .introUniTime{
@@ -133,8 +133,14 @@ body{
 	font-weight: normal;
 }
 
-.introCourses{
+.uobintroCourses{
 	margin-top: 20px;
+	height: 230px;
+}
+
+.uomintroCourses{
+	margin-top: 20px;
+	height: 280;
 }
 
 .courses{
@@ -142,30 +148,12 @@ body{
 	font-weight: bold;
 }
 
-.introYearOne{
-	margin-left: 50px;
-	float: left;
-}
-
-.yearOne{
-	font-weight: bold;
-}
-
-.introYearTwo{
+.year_courses{
 	float: left;
 	margin-left: 50px;
 }
 
-.yearTwo{
-	font-weight: bold;
-}
-
-.introYearThree{
-	float: left;
-	margin-left: 50px;
-}
-
-.yearThree{
+.yearNumber{
 	font-weight: bold;
 }
 

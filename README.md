@@ -8,6 +8,8 @@
 
 * **Django ~=2.2.4**
 
+* **Pillow 9.0.0**
+
 ### First run:
 
 **1. Create dataset tables**

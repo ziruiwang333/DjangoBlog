@@ -1,9 +1,9 @@
+from turtle import forward
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 from .models import Education
 from .models import Work_Experience
-from .models import Personal_Statement
 from .models import *
 
 # Create your views here.
@@ -14,14 +14,36 @@ def index(request):
     return render(request, 'blog/index.html', {'top_post':top_post, 'most_recent':most_recent})
     
 def introduction(request):
-    education = Education.objects.all()
+    educations = Education.objects.all().order_by('-id')
+    print(educations)
+    courses = Course.objects.all()
     work_experience = Work_Experience.objects.all()
-    ps = Personal_Statement.objects.all()
-    year1 = UoB_Year_1.objects.all()
-    year2 = UoB_Year_2.objects.all()
-    year3 = UoB_Year_3.objects.all()
-    details = MyDetail.objects.all()
-    return render(request, 'blog/introduction.html', {'education':education, 'work_experience':work_experience, 'ps':ps, 'year1':year1,'year2':year2,'year3':year3,'details':details})
+    details = MyDetail.objects.first()
+
+    uob_year1 = []
+    uob_year2 = []
+    uob_year3 = []
+    uom_year1 = []
+
+    for course in courses:
+        if(course.university.university == 'University of Birmingham'):
+            if(course.year == 1):
+                uob_year1.append(course.course_name)
+            if(course.year == 2):
+                uob_year2.append(course.course_name)
+            if(course.year == 3):
+                uob_year3.append(course.course_name)
+        elif(course.university.university == 'The University of Manchester'):
+            uom_year1.append(course.course_name)
+
+    forward_dict = {'educations':educations, 
+    'work_experience':work_experience, 
+    'uob':[uob_year1, uob_year2, uob_year3],
+    'uom':[uom_year1],
+    'courses':courses,
+    'details':details,
+    }
+    return render(request, 'blog/introduction.html', forward_dict)
     
 def daily(request):
     albums = Gallery.objects.all()

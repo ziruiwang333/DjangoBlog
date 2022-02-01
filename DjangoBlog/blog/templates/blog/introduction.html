@@ -8,9 +8,9 @@
 	
 	<body>
 		<div class="leftBar">
-			{% for detail in details %}
+
 			<div class="introName">
-				<h1>{{detail.name}}</h1>
+				<h1>{{details.name}}</h1>
 			</div>
 			
 			<div class="introPhoto">
@@ -21,23 +21,34 @@
 				<h3>Phone</h3>
 			</div>
 			<div class="phone">
-				<p>{{detail.phone1}}</p>
+				<p>{{details.phone1}}</p>
 			</div>
+			{% if details.phone != None %}
+			<div class="phone">
+				<p>{{details.phone2}}</p>
+			</div>
+			{% endif %}
 			
 			<div class="leftBarTitle">
 				<h3>Email</h3>
 			</div>
 			<div class="email">
-				<p>{{detail.email}}</p>
+				<p>{{details.email}}</p>
 			</div>
 			
 			<div class="leftBarTitle">
 				<h3>Address</h3>
 			</div>
 			<div class="address">
-				<p>{{detail.address}},</p>
-				<p>{{detail.city}},</p>
-				<p>{{detail.country}}</p>
+				{% if details.address != None %}
+				<p>{{details.address}},</p>
+				{% endif %}
+				{% if details.city != None %}
+				<p>{{details.city}},</p>
+				{% endif %}
+				{% if details.country != None %}
+				<p>{{details.country}}</p>
+				{% endif %}
 			</div>
 			
 			<div class="icons">
@@ -49,7 +60,7 @@
 					<a href="https://www.facebook.com/zirui.wang.79827/" target="_blank"><img src="{% static 'images/facebookIcon.png' %}"/></a>
 				</span>
 			</div>
-			{% endfor %}
+
 		</div>
 		
 		<div class="introContent">
@@ -57,31 +68,42 @@
 			
 			<div class="introEducation">
 				<div class="education">Education</div>
-				{% for ed in education %}
-				<div class="introUniversity">{{ ed.university }} <span class="introUniTime">{{ed.start_date}}-{{ed.end_date}}</span></div>
-				<div class="introCurrent">{{ed.degree}}</div>
-				<div class="introCollege">College: <span class="introCollegeDetail">{{ed.college}}</span></div>
-				<div class="introSubject">Subject: <span class="introSubjectDetail">{{ed.subject}}</span></div>
-				<div class="introCourses">
-					<div class="courses">Courses</div>
-					<div class="introYearOne">
-						<div class="yearOne">Year 1</div>
-						{% for y1 in year1 %}
-						<div class="coursesOne">{{ y1.course }}</div>
+				{% for education in educations %}
+				<div class = "">
+					<div class="introUniversity">{{ education.university }} <span class="introUniTime">{{education.start_date}}-{{education.end_date}}</span></div>
+					<div class="introCollege">College: <span class="introCollegeDetail">{{education.college}}</span></div>
+					<div class="introSubject">Major: <span class="introSubjectDetail">{{education.major}}</span></div>
+					{% if education.university == 'University of Birmingham' %}
+					<div class="uobintroCourses">
+						<div class="courses">Courses</div>
+
+						
+						{% for i in uob %}
+						<div class="year_courses">
+							<div class="yearNumber">Year {{ forloop.counter }}</div>
+							{% for c in i %}
+							<div class="">{{ c }}</div>
+							{% endfor %}
+						</div>
 						{% endfor %}
 					</div>
-					<div class="introYearTwo">
-						<div class="yearTwo">Year 2</div>
-						{% for y2 in year2 %}
-						<div class="coursesTwo">{{ y2.course }}</div>
+					{% endif %}
+
+					{% if education.university == 'The University of Manchester' %}
+					<div class="uomintroCourses">
+						<div class="courses">Courses</div>
+						
+						{% for i in uom %}
+						<div class="year_courses">
+							<div class="yearNumber">Year {{ forloop.counter }}</div>
+							{% for c in i %}
+							<div class="">{{ c }}</div>
+							{% endfor %}
+						</div>
 						{% endfor %}
 					</div>
-					<div class="introYearThree">
-						<div class="yearThree">Year 3</div>
-						{% for y3 in year3 %}
-						<div class="coursesTwo">{{ y3.course }}</div>
-						{% endfor %}
-					</div>
+					{% endif %}
+
 				</div>
 				{% endfor %}
 			</div>
@@ -100,9 +122,7 @@
 			<!-- -->
 			<div class="introPersonalStatement">
 				<div class="personalStatement">Personal Statement</div>
-					{% for myps in ps %}
-					<div class="statementDeatil">{{myps.ps_describe|linebreaksbr}}</div>
-					{% endfor %}
+				<div class="statementDeatil">{{details.introduction|linebreaksbr}}</div>
 			</div>
 		</div>
 		
