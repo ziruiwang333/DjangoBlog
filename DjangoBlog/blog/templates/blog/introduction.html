@@ -71,8 +71,9 @@
 				{% for education in educations %}
 				<div class = "">
 					<div class="introUniversity">{{ education.university }} <span class="introUniTime">{{education.start_date}}-{{education.end_date}}</span></div>
-					<div class="introCollege">College: <span class="introCollegeDetail">{{education.college}}</span></div>
-					<div class="introSubject">Major: <span class="introSubjectDetail">{{education.major}}</span></div>
+					<div class="intro">College: <span class="introDetail">{{education.college}}</span></div>
+					<div class="intro">Degree: <span class="introDetail">{{education.degree}}</span></div>
+					<div class="intro">Major: <span class="introDetail">{{education.major}}</span></div>
 					{% if education.university == 'University of Birmingham' %}
 					<div class="uobintroCourses">
 						<div class="courses">Courses</div>

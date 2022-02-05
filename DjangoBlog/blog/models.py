@@ -33,6 +33,7 @@ class Education(models.Model):
     end_date = models.DateField(blank=True, null=True)
     college = models.CharField(max_length=200)
     major = models.CharField(max_length=200)
+    degree = models.CharField(max_length=100, blank=True)
     
     def __str__(self):
         return self.university

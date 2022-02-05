@@ -98,6 +98,7 @@ body{
 	font-family: Pangolin-Regular;
 	letter-spacing: 2;
 	font-size: 30;
+	margin-bottom: 15px;
 }
 
 .introUniTime{
@@ -114,22 +115,12 @@ body{
 	margin-top: 5px;
 }
 
-.introCollege{
-	display: inline;
+.intro{
+	margin-top: 5px;
 	font-weight: bold;
 }
 
-.introCollegeDetail{
-	font-weight: normal;
-}
-
-.introSubject{
-	display: inline;
-	margin-left: 150px;
-	font-weight: bold;
-}
-
-.introSubjectDetail{
+.introDetail{
 	font-weight: normal;
 }
 
